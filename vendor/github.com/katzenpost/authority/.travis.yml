@@ -1,0 +1,14 @@
+language: go
+
+go:
+  - "1.10"
+  - "1.11"
+
+install:
+  - git config --global http.https://gopkg.in.followRedirects true
+  - go get -v -t ./...
+
+script:
+ - make test-internal
+ - make test-voting
+ - make test-nonvoting
